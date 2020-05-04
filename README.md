@@ -74,8 +74,8 @@ ___
 ```bash
 # jupyter notebooks for demonstration
 notebooks
-  FaceDetector.ipynb     # face detection
-  FaceRecognizer.ipynb   # face recognition
+├─ FaceDetector.ipynb     # face detection
+└─ FaceRecognizer.ipynb   # face recognition
   
 # flask files
 app.py      # main file
