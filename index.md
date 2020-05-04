@@ -6,7 +6,7 @@ markdown:
   ignore_from_front_matter: true
 ---
 
-# Exam Project | Face Recognizer {ignore=true}
+# Exam Project 2020 | Face Recognizer {ignore=true}
 By **Pernille Lørup & Stephan Djurhuus**  
 Institute **CPHBusiness**  
 
@@ -18,6 +18,16 @@ The objective of this task is to enable you to demonstrate the knowledge of arti
 The task is to create a machine learning based solution to a real life problem.
 
 Full exam details can be found in [exam-task.md](exam-task.md).
+
+### Prerequisite
+**[Anaconda Environment](https://anaconda.org/)**
+
+additional python packages
+```bash
+Flask           1.1.2       # pip install Flask 
+tensorflow      2.1.0       # pip install tensorflow
+opencv-python   4.2.0.34    # pip install opencv-python
+```
 
 ### Execution
 To start the flask application run the following script and go to http://localhost:5000/.
@@ -69,3 +79,4 @@ Utilities.py        # classes for encoding, plotting ect.
 cascade-classifiers   # facial cascade classifiers
 models                # saved tensorflow models
 ```
+
