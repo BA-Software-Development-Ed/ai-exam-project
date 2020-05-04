@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Facial Intelligence</title>
+		<link rel="icon" href="{{ url_for('static', filename='assets/favicon.png') }}" />
+
+		<!-- styling -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+
+		<!-- scripts -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='scripts/recognition.js') }}"></script>
+	</head>
+	<body>
+		<!-- header -->
+		<header>
+			<a href="/" class="title">Facial Intelligence</a>
+			<a href="/recognition">recognition</a>
+		</header>
+
+		<!-- progressbar -->
+		<section class="progress">
+			<span>capture image</span>
+			<span class="unloaded"> ··· analysis</span>
+			<span class="unloaded"> ··· recognition</span>
+		</section>
+
+		<!-- main content -->
+		<main class="slide-container-3">
+			<!-- ... -->
+			<div class="slide capture-image-wrapper">
+				<div id="webcam-container">
+					<!-- displays webcam input -->
+				</div>
+
+				<input type="button" value="next" id="capture-image-button" />
+			</div>
+
+			<!-- ... -->
+			<div class="slide analyse-image-wrapper">
+				<img class="animate-loading" src="{{ url_for('static', filename='assets/recognition.svg') }}" alt="recognition link" />
+				<h1>analyzing image</h1>
+			</div>
+
+			<!-- ... -->
+			<div class="slide recognize-image-wrapper">
+				<h2>recognize image</h2>
+			</div>
+		</main>
+	</body>
+</html>

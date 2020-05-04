@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Facial Intelligence</title>
+		<link rel="icon" href="{{ url_for('static', filename='assets/favicon.png') }}" />
+
+		<!-- styling -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+	</head>
+
+	<body>
+		<header>
+			<a href="/" class="title">Facial Intelligence</a>
+			<a href="/">home</a>
+		</header>
+		<section>
+			<!-- for welcome text -->
+		</section>
+		<main>
+			<a href="/detection" class="image-link">
+				<img src="{{ url_for('static', filename='assets/detection.svg') }}" alt="detection link" />
+				<span>detection</span>
+			</a>
+			<a href="/recognition" class="image-link">
+				<img src="{{ url_for('static', filename='assets/recognition.svg') }}" alt="recognition link" />
+				<span>recognition</span>
+			</a>
+		</main>
+	</body>
+</html>

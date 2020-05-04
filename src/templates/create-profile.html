@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Facial Intelligence</title>
+		<link rel="icon" href="{{ url_for('static', filename='assets/favicon.png') }}" />
+
+		<!-- styling -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/slides.css') }}" />
+
+		<!-- scripts -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='scripts/create-profile.js') }}"></script>
+	</head>
+	<body>
+		<!-- header -->
+		<header>
+			<a href="/" class="title">Facial Intelligence</a>
+			<a href="/recognition">recognition</a>
+		</header>
+
+		<!-- progressbar -->
+		<section class="progress">
+			<span>create profile</span>
+			<span class="unloaded"> ··· capture images</span>
+			<span class="unloaded"> ··· train model</span>
+			<span class="unloaded"> ··· evaluate training</span>
+			<span class="unloaded"> ··· test model</span>
+		</section>
+
+		<!-- main content -->
+		<main class="slide-container-5">
+			<!-- request a name to associate with the face -->
+			<div class="slide capture-image-wrapper">
+				<img src="{{ url_for('static', filename='assets/create-profile.svg') }}" alt="create profile link" />
+
+				<p>this name will be the one associated with your facial features</p>
+
+				<input type="text" placeholder="profile name here..." autofocus id="name-input" />
+				<input type="button" value="next" id="submit-name-button" />
+			</div>
+
+			<!-- opens webcam and captures images -->
+			<div class="slide capture-images-wrapper">
+				<div id="webcam-container">
+					<!-- displays webcam input -->
+				</div>
+
+				<input type="button" value="scan" id="capture-images-button" />
+			</div>
+
+			<!-- displays loading animation while training model -->
+			<div class="slide train-model-wrapper">
+				<img class="animate-loading" src="{{ url_for('static', filename='assets/recognition.svg') }}" alt="recognition link" />
+				<h1>training model</h1>
+			</div>
+
+			<!-- ... -->
+			<div class="slide evaluate-model-wrapper">
+				<h2>evaluate model</h2>
+			</div>
+
+			<!-- ... -->
+			<div class="slide test-model-wrapper">
+				<h2>test model</h2>
+			</div>
+		</main>
+	</body>
+</html>
