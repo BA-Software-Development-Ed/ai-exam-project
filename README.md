@@ -40,8 +40,6 @@ ___
 ##  The Content
   
   
-  - [Prerequisite](#prerequisite )
-  - [Execution](#execution )
 - [The Theory](#the-theory )
   - [Face Detection](#face-detection )
   - [Face Recognition](#face-recognition )

@@ -19,7 +19,7 @@ The task is to create a machine learning based solution to a real life problem.
 
 Full exam details can be found in [exam-task.md](exam-task.md).
 
-### Prerequisite
+### Prerequisite {ignore=true}
 **[Anaconda Environment](https://anaconda.org/)**
 
 additional python packages
@@ -29,7 +29,7 @@ tensorflow      2.1.0       # pip install tensorflow
 opencv-python   4.2.0.34    # pip install opencv-python
 ```
 
-### Execution
+### Execution {ignore=true}
 To start the flask application run the following script and go to http://localhost:5000/.
 
 **Run Server**
