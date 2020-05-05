@@ -38,6 +38,9 @@ _bash_
 python src/app.py
 ```
 
+### Notebooks {ignore=true}
+The notebooks is located here [src/notebooks](src/notebooks).
+
 ___
 ## The Content {ignore=true}
 [TOC]
@@ -46,6 +49,10 @@ ___
 ## The Theory
 
 ### Face Detection
+
+#### Cascade Classification
+[reference, docs.opencv.org](https://docs.opencv.org/2.4/modules/objdetect/doc/cascade_classification.html)
+[resource, github.com/opencv](https://github.com/opencv/opencv/tree/master/data/haarcascades)
 
 ### Face Recognition
 

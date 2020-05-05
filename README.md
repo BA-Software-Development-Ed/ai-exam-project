@@ -36,12 +36,17 @@ _bash_
 python src/app.py
 ```
   
+###  Notebooks
+  
+The notebooks is located here [src/notebooks](src/notebooks ).
+  
 ___
 ##  The Content
   
   
 - [The Theory](#the-theory )
   - [Face Detection](#face-detection )
+    - [Cascade Classification](#cascade-classification )
   - [Face Recognition](#face-recognition )
   - [Neural Network](#neural-network )
     - [Convolutional Neural Network (CNN)](#convolutional-neural-network-cnn )
@@ -54,6 +59,11 @@ ___
   
 ###  Face Detection
   
+  
+####  Cascade Classification
+  
+[reference, docs.opencv.org](https://docs.opencv.org/2.4/modules/objdetect/doc/cascade_classification.html )
+[resource, github.com/opencv](https://github.com/opencv/opencv/tree/master/data/haarcascades )
   
 ###  Face Recognition
   
