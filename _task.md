@@ -1,4 +1,3 @@
-<!-- created in enhanced markdown -->
 # Implementations {ignore=true}
 The applications overall functionality is to follow theses protocols.
 

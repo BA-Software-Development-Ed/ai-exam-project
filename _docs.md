@@ -6,7 +6,6 @@ markdown:
   ignore_from_front_matter: true
 ---
 
-<!-- created in enhanced markdown -->
 # Exam Project 2020 | Face Recognizer {ignore=true}
 By **Pernille Lørup & Stephan Djurhuus**  
 Institute **CPHBusiness**  

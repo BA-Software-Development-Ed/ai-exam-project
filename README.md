@@ -1,7 +1,5 @@
   
   
-  
-  
 #  Exam Project 2020 | Face Recognizer
   
 By **Pernille Lørup & Stephan Djurhuus**  
