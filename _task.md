@@ -1,3 +1,4 @@
+<!-- created in enhanced markdown -->
 # Implementations {ignore=true}
 The applications overall functionality is to follow theses protocols.
 
@@ -27,7 +28,7 @@ The applications overall functionality is to follow theses protocols.
 
 _fast commit_
 ```bash
-git add . && git commit -m "['hip', 'hip'] (hip hip array!) 👻" && git push
+git add . && git commit -m "['hip', 'hip'] (hip hip array) 👻" && git push
 ```
 
 ## Content {ignore=true}
