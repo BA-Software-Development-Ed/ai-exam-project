@@ -25,9 +25,12 @@ The applications overall functionality is to follow theses protocols.
 5. Train model with faces from images 
 5. Capture image from webcam with _Face Recognition Protocols_
 
+**Does these models don't fulfill the criteria**  
+Implementation of `ANN` vs `CNN` would be a solution.
+
 _fast commit_
 ```bash
-git add . && git commit -m "['hip', 'hip'] (hip hip array) 👻" && git push
+git add . && git commit -m "fast commit" && git push
 ```
 
 ## Content {ignore=true}
@@ -36,9 +39,9 @@ git add . && git commit -m "['hip', 'hip'] (hip hip array) 👻" && git push
 ___
 ## Task
 ### 1. Face Detection
-- [ ] Face Detector Notebook 
-- [ ] Face Detector Class, based on notebook 
-- [ ] Utility Classes, based on notebook util functions
+- [x] Face Detector Notebook 
+- [x] Face Detector Class, based on notebook 
+- [x] Utility Classes, based on notebook util functions
 
 ### 2. Face Recognition
 - [ ] Face Recognizer Notebook 
