@@ -38,7 +38,7 @@ class DataGenerator:
     @staticmethod
     def generate(path, amount, label):
         file_names = os.listdir(path)
-        images = [cv2.imread(f'{path}/{file_name}').astype(np.float32)/255.0 for file_name in file_names]
+        images = [cv2.imread(f'{path}/{file_name}') for file_name in file_names]
 
         cropped_images = DataGenerator._crop_images(images)
         generated_images = []
