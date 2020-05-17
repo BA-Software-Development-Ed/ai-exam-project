@@ -43,7 +43,24 @@ class FaceDetector:
 
         (x, y, w, h) = face
         cropped_image = image[y:y+h, x:x+w]
-        return cropped_image
+        resized_cropped_image = cv2.resize(cropped_image, (100, 100))
+        return resized_cropped_image
+
+    def crop_all(self, image):
+        image_grayscaled = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        detected_faces = self.classifier.detectMultiScale(image_grayscaled)
+
+        if len(detected_faces) == 0:
+            return
+
+        faces = []
+
+        for (x, y, w, h) in detected_faces:
+            cropped_image = image[y:y+h, x:x+w]
+            resized_cropped_image = cv2.resize(cropped_image, (100, 100))
+            faces.append(resized_cropped_image)
+
+        return faces
 
     def mark(self, image):
         face = self._detect(image)

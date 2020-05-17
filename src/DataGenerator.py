@@ -17,7 +17,7 @@ class DataGenerator:
         height_shift_range=0.1,
         shear_range=10,
         horizontal_flip=True,
-        fill_mode='constant'
+        fill_mode='reflect',  # constant, nearest, reflect, wrap
     )
 
     @staticmethod
@@ -30,13 +30,12 @@ class DataGenerator:
             if cropped_image is None:
                 continue
             else:
-                resized_cropped_image = cv2.resize(cropped_image, (100, 100))
-                cropped_images.append(resized_cropped_image)
+                cropped_images.append(cropped_image)
 
         return cropped_images
 
     @staticmethod
-    def generate(path, amount, label):
+    def generate(path, amount, label, test_size):
         file_names = os.listdir(path)
         images = [cv2.imread(f'{path}/{file_name}') for file_name in file_names]
 
@@ -44,21 +43,21 @@ class DataGenerator:
         generated_images = []
 
         for image in cropped_images:
-            for i in range(10):
+            for i in range(amount):
                 generated_image = DataGenerator.datagen.random_transform(image)
                 generated_images.append([np.array(generated_image), label])
 
-        return np.array(generated_images)
+        generated_images = np.array(generated_images)
+
+        test_size = int(len(generated_images) * test_size)
+        train_data, test_data = generated_images[:-test_size], generated_images[-test_size:]
+
+        return (train_data, test_data)
 
     @staticmethod
-    def merge_shuffle(datasets, test_size):
-        data = np.concatenate(datasets)
-        data = shuffle(data)
+    def merge_shuffle(datasets):
+        dataset = np.concatenate(datasets)
+        dataset = shuffle(dataset)
+        data_images, data_labels = dataset[:, 0], dataset[:, 1]
 
-        test_size = int(len(data) * test_size)
-        train_data, test_data = data[:-test_size], data[-test_size:]
-
-        train_images, train_labels = train_data[:, 0], train_data[:, 1]
-        test_images, test_labels = test_data[:, 0], test_data[:, 1]
-
-        return (train_images, train_labels), (test_images, test_labels)
+        return (data_images, data_labels)

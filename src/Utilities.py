@@ -1,6 +1,10 @@
 import numpy as np
 import cv2
 import base64
+import seaborn as sns
+from matplotlib import pyplot as plt
+
+import tensorflow as tf
 
 
 class Base64:
@@ -41,14 +45,38 @@ class Files:
         pass
 
 
-class Chart:
+class Displayer:
     @staticmethod
     def image(image):
-        pass
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+        plt.axis("off")
+        plt.imshow(image)
+        plt.show()
 
     @staticmethod
-    def heatmap(data):
-        pass
+    def images(images, amount):
+        plt.figure(figsize=(10, 10))
+
+        for index, image in enumerate(images[:amount]):
+            plt.axis("off")
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
+            plt.subplot(amount // 5, 5, 1+index)
+            plt.imshow(image)
+
+        plt.axis("off")
+        plt.show()
+
+    # missing x & y lables
+    @staticmethod
+    def conf_matrix(predictions, labels):
+        predictions = [np.argmax(prediction) for prediction in predictions]
+        conf_matrix = tf.math.confusion_matrix(labels=labels, predictions=predictions).numpy()
+
+        matrix = np.around([row/sum(row) for row in conf_matrix], decimals=2)
+        plot = sns.heatmap(matrix, cmap=sns.color_palette("Blues"), annot=True)
+        figure = plot.get_figure()
 
 
 class OneHot:
