@@ -38,6 +38,7 @@ class DataGenerator:
     def generate(path, amount, label, test_size):
         file_names = os.listdir(path)
         images = [cv2.imread(f'{path}/{file_name}') for file_name in file_names]
+        images = [cv2.cvtColor(image, cv2.COLOR_BGR2RGB) for image in images]
 
         cropped_images = DataGenerator._crop_images(images)
         generated_images = []
@@ -45,9 +46,8 @@ class DataGenerator:
         for image in cropped_images:
             for i in range(amount):
                 generated_image = DataGenerator.datagen.random_transform(image)
-                generated_images.append([np.array(generated_image), label])
-
-        generated_images = np.array(generated_images)
+                generated_image = generated_image / 255  # normalizing
+                generated_images.append([generated_image, label])
 
         test_size = int(len(generated_images) * test_size)
         train_data, test_data = generated_images[:-test_size], generated_images[-test_size:]
@@ -59,5 +59,9 @@ class DataGenerator:
         dataset = np.concatenate(datasets)
         dataset = shuffle(dataset)
         data_images, data_labels = dataset[:, 0], dataset[:, 1]
+
+        # voodoo
+        data_images = np.array([image for image in data_images], dtype=np.float32)
+        data_labels = np.array([label for label in data_labels], dtype=np.float32)
 
         return (data_images, data_labels)

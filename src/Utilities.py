@@ -47,8 +47,9 @@ class Files:
 
 class Displayer:
     @staticmethod
-    def image(image):
-        image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    def image(image, bgr=False):
+        if bgr:
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
         plt.axis("off")
         plt.imshow(image)
@@ -60,8 +61,6 @@ class Displayer:
 
         for index, image in enumerate(images[:amount]):
             plt.axis("off")
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
             plt.subplot(amount // 5, 5, 1+index)
             plt.imshow(image)
 
