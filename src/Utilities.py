@@ -67,15 +67,17 @@ class Displayer:
         plt.axis("off")
         plt.show()
 
-    # missing x & y lables
     @staticmethod
     def conf_matrix(predictions, labels):
         predictions = [np.argmax(prediction) for prediction in predictions]
         conf_matrix = tf.math.confusion_matrix(labels=labels, predictions=predictions).numpy()
-
         matrix = np.around([row/sum(row) for row in conf_matrix], decimals=2)
-        plot = sns.heatmap(matrix, cmap=sns.color_palette("Blues"), annot=True)
-        figure = plot.get_figure()
+
+        plt.figure(figsize=(10, 10))
+        sns.heatmap(matrix, cmap=sns.color_palette("Blues"), annot=True)
+        plt.ylabel('Actual class')
+        plt.xlabel('Predicted class')
+        plt.show()
 
     @staticmethod
     def acc_history(history):
