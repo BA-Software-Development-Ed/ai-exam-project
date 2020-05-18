@@ -42,8 +42,8 @@ class FaceRecognizer:
         self.model = models.load_model(f'{path}.h5')
         self.history = pd.read_csv(f'{path}_hist.csv')
 
-    def recognize(self, image):
-        cropped_image = self.faceDetector.crop(image)
+    def recognize(self, image, gray=False):
+        cropped_image = self.faceDetector.crop(image, gray)
         images = np.array([cropped_image], dtype=np.float32)
         normalized_images = np.array([image/255 for image in images], dtype=np.float32)
 

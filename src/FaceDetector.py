@@ -19,9 +19,10 @@ class FaceDetector:
         classifier_path = self.classifier_paths[classifier_type]
         self.classifier = cv2.CascadeClassifier(classifier_path)
 
-    def _detect(self, image):
-        image_grayscaled = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        detected_faces = self.classifier.detectMultiScale(image_grayscaled)
+    def _detect(self, image, gray=False):
+        if not gray:
+            image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        detected_faces = self.classifier.detectMultiScale(image)
         if len(detected_faces) == 0:
             return
 
@@ -36,8 +37,8 @@ class FaceDetector:
 
         return tmp_face
 
-    def crop(self, image):
-        face = self._detect(image)
+    def crop(self, image, gray=False):
+        face = self._detect(image, gray)
         if not face:
             return
 
