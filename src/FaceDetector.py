@@ -70,3 +70,21 @@ class FaceDetector:
         (x, y, w, h) = face
         cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
         return image
+
+    def face_details(self, image):
+        image_grayscaled = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        detected_faces = self.classifier.detectMultiScale(image_grayscaled)
+
+        if len(detected_faces) == 0:
+            return
+
+        faces_data = []
+
+        for (x, y, w, h) in detected_faces:
+            cropped_image = image[y:y+h, x:x+w]
+            resized_cropped_image = cv2.resize(cropped_image, (100, 100))
+            normalized_image = resized_cropped_image / 255  # normalizing
+            face_data = {'image': normalized_image, 'face': (x, y, w, h)}
+            faces_data.append(face_data)
+
+        return faces_data

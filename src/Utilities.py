@@ -81,12 +81,21 @@ class Displayer:
 
     @staticmethod
     def acc_history(history):
-        plt.plot(history.history['accuracy'], label='accuracy')
-        plt.plot(history.history['val_accuracy'], label='val_accuracy')
+        plt.plot(history['accuracy'], label='accuracy')
+        plt.plot(history['val_accuracy'], label='val_accuracy')
         plt.xlabel('Epoch')
         plt.ylabel('Accuracy')
         plt.ylim([0.5, 1])
         plt.legend(loc='lower right')
+
+    @staticmethod
+    def mark_predictions(image, faces_data, classes):
+        for face_data in faces_data:
+            (x, y, w, h) = face_data['face']
+            cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
+            cv2.putText(image, classes[face_data['prediction']], (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+
+        Displayer.image(image, bgr=True)
 
 
 class OneHot:
