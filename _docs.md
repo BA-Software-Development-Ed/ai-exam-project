@@ -67,15 +67,14 @@ Haar feature-based cascade classifiers are pretrained classifiers made for a spe
 
 ![classifier detections](assets/classifier-detections.png)
 
-**haarcascade_frontalcatface_alt**
-_image here..._
+**haarcascade_frontalcatface_alt**  
+_validation here..._
 
-**haarcascade_frontalcatface_alt2**
-_image here..._
+**haarcascade_frontalcatface_alt2**  
+_validation here..._
 
-**haarcascade_frontalcatface_default**
-_image here..._
-
+**haarcascade_frontalcatface_default**  
+_validation here..._
 
 #### Cascade Classification
 [reference, docs.opencv.org](https://docs.opencv.org/master/db/d28/tutorial_cascade_classifier.html)
