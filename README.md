@@ -73,6 +73,7 @@ ___
   
 We decided to create a face recognition application, using `TensorFlow`, `openCV` and `Flask` as the main components. 
   
+  
 ![face recognition](assets/face-recognition.png )
   
 _some info about the project..._
