@@ -8,11 +8,9 @@ class FaceDetector:
     classifier = None
 
     classifier_paths = {
-        'CAT_EXTENDED': '../cascade-classifiers/haarcascade_frontalcatface_extended.xml',
-        'CAT': '../cascade-classifiers/haarcascade_frontalcatface.xml',
-        'FACE_ALT': '../cascade-classifiers/haarcascade_frontalface_alt.xml',         # works!
-        'FACE_ALT2': '../cascade-classifiers/haarcascade_frontalface_alt2.xml',       # works!
-        'FACE_DEFAULT': '../cascade-classifiers/haarcascade_frontalface_default.xml',  # works best!
+        'FACE_ALT': '../cascade-classifiers/haarcascade_frontalface_alt.xml',
+        'FACE_ALT2': '../cascade-classifiers/haarcascade_frontalface_alt2.xml',
+        'FACE_DEFAULT': '../cascade-classifiers/haarcascade_frontalface_default.xml',
     }
 
     def __init__(self, classifier_type):

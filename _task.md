@@ -42,17 +42,25 @@ ___
 ### 2. Face Recognition
 - [x] Face Recognizer Notebook 
 - [x] Face Recognizer Class, based on notebook  
-- [ ] Utility Classes, based on notebook util functions
+- [x] Utility Classes, based on notebook util functions
 
-### 3. Web Application
+### 3.1 Web Application
 - [ ] Implement Face Detector Class
 - [ ] Implement Face Recognizer Class
 
+### 3.2 Web Application Redesign
+- [ ] index.html => detect image & recognize
+- [ ] detect.html => post images, response with face box image
+- [ ] recognize.html => post images, response with face box image, and names - maybe percentage
+
 ### 4. Optimizing
+- [ ] Add `Unknown` class as result, maybe by percentage
 - [ ] Combine ANN & CNN in single notebook
 - [ ] Make several ANN & CNN models, and compare
 - [ ] Add markdown content to notebooks
+- [ ] Save diagrams as images for the `_docs.md`
 - [ ] Finnish `_docs.md`
+- [ ] Short function comments in `.py` files
 
 ___
 ## Sketches
