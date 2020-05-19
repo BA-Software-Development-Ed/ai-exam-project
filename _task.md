@@ -1,4 +1,4 @@
-# Implementations {ignore=true}
+# Implementations
 The applications overall functionality is to follow theses protocols.
 
 **Face Detection Protocol**
@@ -32,10 +32,6 @@ _fast commit_
 ```bash
 git add . && git commit -m "fast commit" && git push
 ```
-
-## Content {ignore=true}
-[TOC]
-
 ___
 ## Task
 ### 1. Face Detection
@@ -44,13 +40,19 @@ ___
 - [x] Utility Classes, based on notebook util functions
 
 ### 2. Face Recognition
-- [ ] Face Recognizer Notebook 
-- [ ] Face Recognizer Class, based on notebook  
+- [x] Face Recognizer Notebook 
+- [x] Face Recognizer Class, based on notebook  
 - [ ] Utility Classes, based on notebook util functions
 
 ### 3. Web Application
 - [ ] Implement Face Detector Class
 - [ ] Implement Face Recognizer Class
+
+### 4. Optimizing
+- [ ] Combine ANN & CNN in single notebook
+- [ ] Make several ANN & CNN models, and compare
+- [ ] Add markdown content to notebooks
+- [ ] Finnish `_docs.md`
 
 ___
 ## Sketches
@@ -66,13 +68,4 @@ _html_
 ```html
 <img src=`data:image/jpeg;base64,${base64 String}`>
 ```
-
 ___
-## Issue
-
-### Server Crash on Plotting
-Plotting images with open cv from flask application causes thread error and server crash.
-
-**Solution** _I think this is caused because flask isn't allowed to open any new windows. It wouldn't make sense to open windows from the server application anyway, so that is probably a good thing :)._
-
-

@@ -8,6 +8,8 @@ Institute **CPHBusiness**
 Education **Software Development**  
 Elective **Artificial Intelligence**  
   
+[Link to GitHub Repository](https://github.com/BA-Software-Development-Ed/ai-exam-project )
+  
 ###  Objective
   
 The objective of this task is to enable you to demonstrate the knowledge of artificial intelligence and machine learning acquired during the elective AI course.  
@@ -71,27 +73,9 @@ ___
   
 We decided to create a face recognition application, using `TensorFlow`, `openCV` and `Flask` as the main components. 
   
-_some info about the project_
+![face recognition](assets/face-recognition.png )
   
-**Training The model**
-```flow
-start=>start: input images
-detect=>operation: detect faces
-crop=>operation: crop faces
-generate=>operation: generate images
-split=>operation: split dataset
-train=>operation: train model
-test=>operation: test model
-end=>end: trained model
-  
-start->detect
-detect->crop
-crop->generate
-generate->split
-split->train
-train->test
-test->end
-```
+_some info about the project..._
   
 ###  Face Detection
   
@@ -102,19 +86,16 @@ Haar feature-based cascade classifiers are pretrained classifiers made for a spe
   
 ####  Classifier Validations
   
-**haarcascade_frontalcatface.xml**
+  
+![classifier detections](assets/classifier-detections.png )
+  
+**haarcascade_frontalcatface_alt**
 _image here..._
   
-**haarcascade_frontalcatface_extended.xml**
+**haarcascade_frontalcatface_alt2**
 _image here..._
   
-**haarcascade_frontalcatface_alt.xml**
-_image here..._
-  
-**haarcascade_frontalcatface_alt2.xml**
-_image here..._
-  
-**haarcascade_frontalcatface_default.xml**
+**haarcascade_frontalcatface_default**
 _image here..._
   
   
@@ -124,6 +105,9 @@ _image here..._
 [resource, github.com/opencv](https://github.com/opencv/opencv/tree/master/data/haarcascades )
   
 ###  Data Processing
+  
+  
+![data generation](assets/data-generation.png )
   
 _about data generator here..._
   
