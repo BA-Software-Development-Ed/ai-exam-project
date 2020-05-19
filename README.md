@@ -48,6 +48,7 @@ ___
   
 - [The Theory](#the-theory )
   - [Introduction](#introduction )
+  - [Classification or Regression](#classification-or-regression )
   - [Face Detection](#face-detection )
     - [Cascade Classification](#cascade-classification )
       - [Classifier Validations](#classifier-validations )
@@ -64,6 +65,12 @@ ___
   - [Conclusion](#conclusion )
 - [The Source](#the-source )
   - [Project Structure](#project-structure )
+  - [FaceDetector (.py)](#facedetector-py )
+  - [FaceRecognizer (.py)](#facerecognizer-py )
+  - [DataGenerator (.py)](#datagenerator-py )
+  - [Utilities (.py)](#utilities-py )
+  - [app (.py)](#app-py )
+  - [models (directory)](#models-directory )
   
 ___
 ##  The Theory
@@ -77,6 +84,10 @@ We decided to create a face recognition application, using `TensorFlow`, `openCV
 ![face recognition](assets/face-recognition.png )
   
 _some info about the project..._
+  
+###  Classification or Regression
+  
+_about the use cases for theses two..._
   
 ###  Face Detection
   
@@ -124,10 +135,10 @@ _about ann here..._
 ####  Layers
   
   
-**Flatten**
+**Flatten**  
 _about layer here..._
   
-**Dense Layer**
+**Dense Layer**  
 _about layer here..._
   
 ####  Activation Functions
@@ -144,10 +155,10 @@ _about cnn here..._
   
 ####  Layers
   
-**Convolutional Layer**
+**Convolutional Layer**  
 _about layer here... (kernels)_
   
-**Max Pooling Layer**
+**Max Pooling Layer**  
 _about layer here... (kernels)_
   
 ####  Activation Functions
@@ -184,6 +195,7 @@ app.py      # main file
 # custom classes for flask application
 FaceDetector.py     # notebook as class
 FaceRecognizer.py   # notebook as class
+DataGenerator.py   # notebook as class
 Utilities.py        # classes for encoding, plotting ect.
   
 # models and classifiers
@@ -194,4 +206,32 @@ Utilities.py        # classes for encoding, plotting ect.
 /data # dataset from microsoft
 ```
   
+###  FaceDetector (.py)
+  
+_about face detector..._  
+[FaceDetector.py](src/FaceDetectorpp.py )
+  
+###  FaceRecognizer (.py)
+  
+_about face recognizer..._  
+[FaceRecognizer.py](src/FaceRecognizer.py )
+  
+###  DataGenerator (.py)
+  
+_about data generator..._  
+[DataGenerator.py](src/DataGenerator.py )
+  
+###  Utilities (.py)
+  
+_about utilities..._  
+[Utilities.py](src/Utilities.py )
+  
+###  app (.py)
+  
+_about flask app..._  
+[FaceDetector.py](src/app.py )
+  
+###  models (directory)
+  
+_about the models..._
   
