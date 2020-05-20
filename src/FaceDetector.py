@@ -17,6 +17,7 @@ class FaceDetector:
         classifier_path = self.classifier_paths[classifier_type]
         self.classifier = cv2.CascadeClassifier(classifier_path)
 
+    # private method, returns face geometrics with biggest diagonal
     def _detect(self, image, gray=False):
         if not gray:
             image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
@@ -35,6 +36,7 @@ class FaceDetector:
 
         return tmp_face
 
+    # returns cropped and resized face as image (100 x 100)
     def crop(self, image, gray=False):
         face = self._detect(image, gray)
         if not face:
@@ -45,6 +47,7 @@ class FaceDetector:
         resized_cropped_image = cv2.resize(cropped_image, (100, 100))
         return resized_cropped_image
 
+    # returns list of cropped and resized faces from image
     def crop_all(self, image):
         image_grayscaled = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         detected_faces = self.classifier.detectMultiScale(image_grayscaled)
@@ -61,6 +64,7 @@ class FaceDetector:
 
         return faces
 
+    # returns image marked with biggest detection
     def mark(self, image):
         face = self._detect(image)
         if not face:
@@ -70,6 +74,7 @@ class FaceDetector:
         cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
         return image
 
+    # returns list of objects with cropped image and face geometrics
     def face_details(self, image):
         image_grayscaled = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         detected_faces = self.classifier.detectMultiScale(image_grayscaled)
@@ -87,3 +92,13 @@ class FaceDetector:
             faces_data.append(face_data)
 
         return faces_data
+
+    # returns image with all detections marked
+    def mark_all(self, image):
+        image_grayscaled = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        detected_faces = self.classifier.detectMultiScale(image_grayscaled)
+
+        for (x, y, w, h) in detected_faces:
+            cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
+
+        return image

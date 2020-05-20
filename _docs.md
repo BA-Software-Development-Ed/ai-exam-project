@@ -34,7 +34,7 @@ opencv-python   4.2.0.34    # pip install opencv-python
 ### Execution {ignore=true}
 To start the flask application run the following script and go to http://localhost:5000/.
 
-**Run Server**
+**Run Server**  
 _bash_
 ```bash
 python src/app.py
@@ -85,7 +85,7 @@ _validation here..._
 [reference, docs.opencv.org](https://docs.opencv.org/master/db/d28/tutorial_cascade_classifier.html)
 [resource, github.com/opencv](https://github.com/opencv/opencv/tree/master/data/haarcascades)
 
-### Data Processing
+### Data Processing & Augmentation
 
 ![data generation](assets/data-generation.png)
 
@@ -94,6 +94,17 @@ _validation here..._
 _about data generator here..._
 
 ### Face Recognition
+
+### General Neural Network
+
+#### Activation Functions
+_about activation functions here..._
+
+#### Loss Functions
+_about SparseCategoricalCrossentropy..._
+
+#### Optimizers
+_about optimizers => adam..._
 
 ### Artificial Neural Network (ANN)
 _about ann here..._
@@ -105,9 +116,6 @@ _about layer here..._
 
 **Dense Layer**  
 _about layer here..._
-
-#### Activation Functions
-_about activation functions here..._
 
 #### Model Validations
 _model configurations and data here..._
@@ -122,8 +130,8 @@ _about layer here... (kernels)_
 **Max Pooling Layer**  
 _about layer here... (kernels)_
 
-#### Activation Functions
-_about activation functions here..._
+**Dropout (Regularization)**
+_about layer here..._
 
 #### Model Validations
 _model configurations and data here..._
@@ -138,9 +146,8 @@ ___
 ```bash
 # jupyter notebooks for demonstration
 /notebooks
-├─ FaceDetector.ipynb             # face detection
-├─ FaceRecognizer.ipynb           # cnn face recognition
-└─ ArtificialNeuralNetwork.ipynb  # ann face recognition
+├─ FaceDetector.ipynb     # face detection
+└─ FaceRecognizer.ipynb   # face recognition
 
 # flask files
 app.py      # main file

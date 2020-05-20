@@ -55,12 +55,12 @@ ___
 
 ### 4. Optimizing
 - [ ] Add `Unknown` class as result, maybe by percentage
-- [ ] Combine ANN & CNN in single notebook
+- [x] Combine ANN & CNN in single notebook
 - [ ] Make several ANN & CNN models, and compare
-- [ ] Add markdown content to notebooks
+- [x] Add markdown content to notebooks
 - [ ] Save diagrams as images for the `_docs.md`
 - [ ] Finnish `_docs.md`
-- [ ] Short function comments in `.py` files
+- [x] Short function comments in `.py` files
 
 ___
 ## Sketches

@@ -46,6 +46,8 @@ class Files:
 
 
 class Displayer:
+
+    # displays image
     @staticmethod
     def image(image, bgr=False):
         if bgr:
@@ -55,6 +57,7 @@ class Displayer:
         plt.imshow(image)
         plt.show()
 
+    # displays images
     @staticmethod
     def images(images, amount):
         plt.figure(figsize=(10, 10))
@@ -67,27 +70,33 @@ class Displayer:
         plt.axis("off")
         plt.show()
 
+    # displays confusion matrix
     @staticmethod
-    def conf_matrix(predictions, labels):
+    def conf_matrix(predictions, labels, title):
         predictions = [np.argmax(prediction) for prediction in predictions]
         conf_matrix = tf.math.confusion_matrix(labels=labels, predictions=predictions).numpy()
         matrix = np.around([row/sum(row) for row in conf_matrix], decimals=2)
 
         plt.figure(figsize=(10, 10))
+        plt.title(title)
         sns.heatmap(matrix, cmap=sns.color_palette("Blues"), annot=True)
         plt.ylabel('Actual class')
         plt.xlabel('Predicted class')
         plt.show()
 
+    # displays accuracy history
     @staticmethod
-    def acc_history(history):
+    def acc_history(history, title):
         plt.plot(history['accuracy'], label='accuracy')
         plt.plot(history['val_accuracy'], label='val_accuracy')
+        plt.title(title)
         plt.xlabel('Epoch')
         plt.ylabel('Accuracy')
         plt.ylim([0.5, 1])
         plt.legend(loc='lower right')
+        plt.show()
 
+    # displays image marked with all detections
     @staticmethod
     def mark_predictions(image, faces_data, classes):
         for face_data in faces_data:

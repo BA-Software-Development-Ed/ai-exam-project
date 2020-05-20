@@ -20,6 +20,7 @@ class DataGenerator:
         fill_mode='reflect',  # constant, nearest, reflect, wrap
     )
 
+    # private method, returns list of cropped faces from images
     @staticmethod
     def _crop_images(images):
         cropped_images = []
@@ -34,6 +35,7 @@ class DataGenerator:
 
         return cropped_images
 
+    # returns datasets of auto generated images from image folder
     @staticmethod
     def generate(path, amount, label, test_size):
         file_names = os.listdir(path)
@@ -54,6 +56,7 @@ class DataGenerator:
 
         return (train_data, test_data)
 
+    # returns merged and shuffled datasets
     @staticmethod
     def merge_shuffle(datasets):
         dataset = np.concatenate(datasets)

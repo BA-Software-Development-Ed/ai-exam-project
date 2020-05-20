@@ -32,7 +32,7 @@ opencv-python   4.2.0.34    # pip install opencv-python
   
 To start the flask application run the following script and go to http://localhost:5000/.
   
-**Run Server**
+**Run Server**  
 _bash_
 ```bash
 python src/app.py
@@ -52,15 +52,17 @@ ___
   - [Face Detection](#face-detection )
     - [Cascade Classification](#cascade-classification )
       - [Classifier Validations](#classifier-validations )
-  - [Data Processing](#data-processing )
+  - [Data Processing & Augmentation](#data-processing-augmentation )
   - [Face Recognition](#face-recognition )
+  - [General Neural Network](#general-neural-network )
+    - [Activation Functions](#activation-functions )
+    - [Loss Functions](#loss-functions )
+    - [Optimizers](#optimizers )
   - [Artificial Neural Network (ANN)](#artificial-neural-network-ann )
     - [Layers](#layers )
-    - [Activation Functions](#activation-functions )
     - [Model Validations](#model-validations )
   - [Convolutional Neural Network (CNN)](#convolutional-neural-network-cnn )
     - [Layers](#layers-1 )
-    - [Activation Functions](#activation-functions-1 )
     - [Model Validations](#model-validations-1 )
   - [Conclusion](#conclusion )
 - [The Source](#the-source )
@@ -116,7 +118,7 @@ _validation here..._
 [reference, docs.opencv.org](https://docs.opencv.org/master/db/d28/tutorial_cascade_classifier.html )
 [resource, github.com/opencv](https://github.com/opencv/opencv/tree/master/data/haarcascades )
   
-###  Data Processing
+###  Data Processing & Augmentation
   
   
 ![data generation](assets/data-generation.png )
@@ -127,6 +129,21 @@ _about data generator here..._
   
 ###  Face Recognition
   
+  
+###  General Neural Network
+  
+  
+####  Activation Functions
+  
+_about activation functions here..._
+  
+####  Loss Functions
+  
+_about SparseCategoricalCrossentropy..._
+  
+####  Optimizers
+  
+_about optimizers => adam..._
   
 ###  Artificial Neural Network (ANN)
   
@@ -140,10 +157,6 @@ _about layer here..._
   
 **Dense Layer**  
 _about layer here..._
-  
-####  Activation Functions
-  
-_about activation functions here..._
   
 ####  Model Validations
   
@@ -161,9 +174,8 @@ _about layer here... (kernels)_
 **Max Pooling Layer**  
 _about layer here... (kernels)_
   
-####  Activation Functions
-  
-_about activation functions here..._
+**Dropout (Regularization)**
+_about layer here..._
   
 ####  Model Validations
   
@@ -182,9 +194,8 @@ ___
 ```bash
 # jupyter notebooks for demonstration
 /notebooks
-├─ FaceDetector.ipynb             # face detection
-├─ FaceRecognizer.ipynb           # cnn face recognition
-└─ ArtificialNeuralNetwork.ipynb  # ann face recognition
+├─ FaceDetector.ipynb     # face detection
+└─ FaceRecognizer.ipynb   # face recognition
   
 # flask files
 app.py      # main file
