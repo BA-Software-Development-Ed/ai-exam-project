@@ -11,8 +11,7 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
 
 		<!-- scripts -->
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
-		<script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script>
+		<!--script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script-->
 		<script type="text/javascript" src="{{ url_for('static', filename='scripts/detection.js') }}"></script>
 	</head>
 	<body>
@@ -33,11 +32,20 @@
 		<main class="slide-container-3">
 			<!-- ... -->
 			<div class="slide capture-image-wrapper">
-				<div id="webcam-container">
-					<!-- displays webcam input -->
-				</div>
+				<h2>upload image</h2>
+				<form id="detect-form">
+					<input type="file" name="image-input" />
+					<button type="submit">send image</button>
+				</form>
 
-				<input type="button" value="next" id="capture-image-button" />
+				<img alt="image detections" id="image-detections" src="" />
+
+				<img
+					src="data:image/jpg;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
+				AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
+					9TXL0Y4OHwAAAABJRU5ErkJggg=="
+					alt="Red dot"
+				/>
 			</div>
 
 			<!-- ... -->

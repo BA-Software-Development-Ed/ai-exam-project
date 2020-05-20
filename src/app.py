@@ -1,7 +1,18 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, redirect, render_template, jsonify
+import cv2
+import base64
+import numpy as np
+import os
+import io
+from PIL import Image
+
 from Utilities import Base64, Files
-import time  # for loading simulation
+
+from FaceDetector import FaceDetector
+
 app = Flask(__name__)
+
+faceDetector = FaceDetector('FACE_ALT2')
 
 
 @app.route('/')
@@ -9,36 +20,45 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/detection')
+@app.route('/detection',  methods=["GET", "POST"])
 def detection():
-    return render_template('detection.html')
+    if request.method == "GET":
+        return render_template('detection.html')
+
+    # get base64 image from request
+    raw_image = request.get_json()['image']
+
+    # decodes base64 image to cv image
+    image = Base64.decodeAsImage(raw_image)
+
+    # detects faces on image
+    marked_image = faceDetector.mark_all(image)
+
+    img = Image.fromarray(marked_image.astype("uint8"))
+
+    # voodoo
+    rawBytes = io.BytesIO()
+    img.save(rawBytes, "JPEG")
+    rawBytes.seek(0)
+
+    # ...
+    img_base64 = base64.b64encode(rawBytes.read())
+    response = str(img_base64, 'utf-8')
+
+    return jsonify({'image': response}), 200
 
 
-@app.route('/recognition')
+@app.route('/recognition',  methods=["GET", "POST"])
 def recognition():
-    return render_template('recognition.html')
 
+    if request.method == "GET":
+        return render_template('recognition.html')
 
-@app.route('/recognize-profile')
-def recognize_profile():
-    return render_template('recognize-profile.html')
+    raw_image = request.files["image"].read()
+    np_image = np.fromstring(raw_image, np.uint8)
+    image = cv2.imdecode(np_image, cv2.IMREAD_UNCHANGED)
 
-
-@app.route('/create-profile')
-def create_profile():
-    return render_template('create-profile.html')
-
-
-@app.route('/create-profile', methods=['POST'])
-def train():
-    response = request.get_json()
-    Files.saveBase64(response['images'], 'storage')
-
-    print('respone name;', response['name'])
-
-    data = {'message': f'successfully saved images to memory'}
-    time.sleep(5)  # simulates model training
-    return jsonify(data), 200
+    return 200
 
 
 app.run(debug=True)

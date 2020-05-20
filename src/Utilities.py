@@ -27,7 +27,8 @@ class Base64:
     def decodeAsImage(base64String):
         image_array = Base64.decodeAsArray(base64String)
         image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
-        return image
+        rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+        return rgb_image
 
 
 class Files:

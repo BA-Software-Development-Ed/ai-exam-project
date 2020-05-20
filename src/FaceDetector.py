@@ -1,5 +1,6 @@
 import cv2
 import math
+import os
 
 
 class FaceDetector:
@@ -8,9 +9,9 @@ class FaceDetector:
     classifier = None
 
     classifier_paths = {
-        'FACE_ALT': '../cascade-classifiers/haarcascade_frontalface_alt.xml',
-        'FACE_ALT2': '../cascade-classifiers/haarcascade_frontalface_alt2.xml',
-        'FACE_DEFAULT': '../cascade-classifiers/haarcascade_frontalface_default.xml',
+        'FACE_ALT': f'{os.getcwd()}/src/cascade-classifiers/haarcascade_frontalface_alt.xml',
+        'FACE_ALT2': f'{os.getcwd()}/src/cascade-classifiers/haarcascade_frontalface_alt2.xml',
+        'FACE_DEFAULT': f'{os.getcwd()}/src/cascade-classifiers/haarcascade_frontalface_default.xml',
     }
 
     def __init__(self, classifier_type):

@@ -37,7 +37,7 @@ To start the flask application run the following script and go to http://localho
 **Run Server**  
 _bash_
 ```bash
-python src/app.py
+python src/App.py
 ```
 
 ### Notebooks {ignore=true}
@@ -150,7 +150,7 @@ ___
 └─ FaceRecognizer.ipynb   # face recognition
 
 # flask files
-app.py      # main file
+App.py      # main file
 /templates   # html templates
 /static      # javascript, styling and assets
 /storage     # stored images from webcams
@@ -185,7 +185,7 @@ _about data generator..._
 _about utilities..._  
 [Utilities.py](src/Utilities.py)
 
-### app (.py)
+### App (.py)
 _about flask app..._  
 [FaceDetector.py](src/app.py)
 
