@@ -6,8 +6,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-
     overflow: hidden;
 }
 
@@ -21,6 +19,10 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+h1 {
+    color: #888;
 }
 
 header a {
@@ -39,18 +41,19 @@ header .title {
 
 main {
     position: relative;
-    width: 100vw;
+    width: 100%;
+    left: 0px;
 
     flex: 1;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    transition: all 500ms;
 }
 
-main input {
-    padding: .6rem;
-    margin: 1rem;
-    font-size: 1.2rem;
+.not-implemented {
+    opacity: .2;
 }
 
 .image-link {
@@ -81,6 +84,10 @@ main input {
     width: 35%;
 }
 
+.progress {
+    text-align: center;
+}
+
 .progress span {
     color: #888;
     font-weight: bold;
@@ -92,29 +99,54 @@ main input {
     opacity: .5;
 }
 
-.slide-container-5 {
-    width: 500vw;
-    left: 200vw;
-
-    transition: all 500ms;
-}
-
-.slide-container-3 {
-    width: 300vw;
-    left: 100vw;
-
-    transition: all 500ms;
-}
-
 .slide {
     flex: 1;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.slide form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.slide form .submit-button {
+    margin: 2rem;
+    padding: .8rem;
+    width: 10rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+.slide form .submit-button:hover {
+    background-color: dodgerblue;
+    color: #fff;
+}
+
+.image {
+    width: 80%;
+    max-width: 650px;
+    border-radius: 2rem;
+    box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, .2);
+}
+
+.animate-loading {
+    width: 60vw;
+    box-shadow: none;
+    border-radius: none;
+}
+
 .animate-loading {
     animation: load_animation 2s infinite;
+}
+
+*:focus {
+    outline: none;
 }
 
 @keyframes load_animation {

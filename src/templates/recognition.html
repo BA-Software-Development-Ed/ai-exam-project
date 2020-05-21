@@ -9,23 +9,49 @@
 
 		<!-- styling -->
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+
+		<!-- scripts -->
+		<script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script>
 	</head>
 	<body>
+		<!-- header -->
 		<header>
 			<a href="/" class="title">Facial Intelligence</a>
 			<a href="/recognition">recognition</a>
 		</header>
-		<main>
-			<main>
-				<a href="/recognize-profile" class="image-link">
-					<img src="{{ url_for('static', filename='assets/recognition.svg') }}" alt="recognition link" />
-					<span>recognize profile</span>
-				</a>
-				<a href="/create-profile" class="image-link">
-					<img src="{{ url_for('static', filename='assets/create-profile.svg') }}" alt="create profile link" />
-					<span>create profile</span>
-				</a>
-			</main>
+
+		<!-- progressbar -->
+		<section class="progress">
+			<span>upload image</span>
+			<span class="unloaded"> ··· analysis</span>
+			<span class="unloaded"> ··· recognition</span>
+		</section>
+
+		<!-- main content -->
+		<main style="width: 300vw;">
+			<!-- slide 1 -->
+			<div class="slide">
+				<h1>upload image</h1>
+				<form id="detect-form" data-uri="/recognition">
+					<input type="file" name="image-input" id="file-selector" style="display: none;" onchange="read_file(this);" />
+					<button onclick="document.querySelector('#file-selector').click();" style="border: none;">
+						<img src="{{ url_for('static', filename='assets/image-placeholder.png') }}" id="image-preview" class="image" />
+					</button>
+					<button type="submit" class="submit-button">submit image</button>
+				</form>
+			</div>
+
+			<!-- slide 2 -->
+			<div class="slide">
+				<h1>analyzing image</h1>
+				<img class="animate-loading" src="{{ url_for('static', filename='assets/recognition.svg') }}" alt="recognition link" />
+			</div>
+
+			<!-- slide 3 -->
+			<div class="slide">
+				<h1>recognition image</h1>
+				<img alt="image detections" id="image-detections" class="image" />
+			</div>
 		</main>
 	</body>
 </html>

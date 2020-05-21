@@ -16,18 +16,26 @@
 			<a href="/" class="title">Facial Intelligence</a>
 			<a href="/">home</a>
 		</header>
-		<section>
-			<!-- for welcome text -->
-		</section>
+		
 		<main>
 			<a href="/detection" class="image-link">
 				<img src="{{ url_for('static', filename='assets/detection.svg') }}" alt="detection link" />
 				<span>detection</span>
 			</a>
+
 			<a href="/recognition" class="image-link">
 				<img src="{{ url_for('static', filename='assets/recognition.svg') }}" alt="recognition link" />
 				<span>recognition</span>
 			</a>
+
+			<a href="#" class="image-link not-implemented">
+				<img src="{{ url_for('static', filename='assets/create-profile.svg') }}" alt="recognition link" />
+				<span>create profile</span>
+			</a>
 		</main>
+
+		<section style="text-align: center;">
+			<h3>by Pernille & Stephan</h1>
+		</section>
 	</body>
 </html>

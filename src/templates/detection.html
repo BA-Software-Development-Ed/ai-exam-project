@@ -11,8 +11,7 @@
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
 
 		<!-- scripts -->
-		<!--script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script-->
-		<script type="text/javascript" src="{{ url_for('static', filename='scripts/detection.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='scripts/index.js') }}"></script>
 	</head>
 	<body>
 		<!-- header -->
@@ -23,40 +22,36 @@
 
 		<!-- progressbar -->
 		<section class="progress">
-			<span>capture image</span>
+			<span>upload image</span>
 			<span class="unloaded"> ··· analysis</span>
 			<span class="unloaded"> ··· detection</span>
 		</section>
 
 		<!-- main content -->
-		<main class="slide-container-3">
-			<!-- ... -->
-			<div class="slide capture-image-wrapper">
-				<h2>upload image</h2>
-				<form id="detect-form">
-					<input type="file" name="image-input" />
-					<button type="submit">send image</button>
+		<main style="width: 300vw;">
+			<!-- slide 1 -->
+			<div class="slide">
+				<h1>upload image</h1>
+				<form id="detect-form" data-uri="/detection">
+					<input type="file" name="image-input" id="file-selector" style="display: none;" onchange="read_file(this);" />
+					<button onclick="document.querySelector('#file-selector').click();" style="border: none;">
+						<img src="{{ url_for('static', filename='assets/image-placeholder.png') }}" id="image-preview" class="image" />
+					</button>
+
+					<button type="submit" class="submit-button">submit image</button>
 				</form>
-
-				<img alt="image detections" id="image-detections" src="" />
-
-				<img
-					src="data:image/jpg;base64, iVBORw0KGgoAAAANSUhEUgAAAAUA
-				AAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO
-					9TXL0Y4OHwAAAABJRU5ErkJggg=="
-					alt="Red dot"
-				/>
 			</div>
 
-			<!-- ... -->
-			<div class="slide analyse-image-wrapper">
-				<img class="animate-loading" src="{{ url_for('static', filename='assets/detection.svg') }}" alt="recognition link" />
+			<!-- slide 2 -->
+			<div class="slide">
 				<h1>analyzing image</h1>
+				<img class="animate-loading" src="{{ url_for('static', filename='assets/detection.svg') }}" alt="recognition link" />
 			</div>
 
-			<!-- ... -->
-			<div class="slide detect-image-wrapper">
-				<h2>detect image</h2>
+			<!-- slide 3 -->
+			<div class="slide">
+				<h1>detected image</h1>
+				<img alt="image detections" id="image-detections" class="image" />
 			</div>
 		</main>
 	</body>
