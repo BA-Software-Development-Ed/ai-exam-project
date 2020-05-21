@@ -153,7 +153,6 @@ ___
 App.py      # main file
 /templates   # html templates
 /static      # javascript, styling and assets
-/storage     # stored images from webcams
 
 # custom classes for flask application
 FaceDetector.py     # notebook as class
