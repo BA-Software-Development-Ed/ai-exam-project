@@ -31,12 +31,16 @@ class Displayer:
 
     # displays image
     @staticmethod
-    def image(image, bgr=False):
+    def image(image, bgr=False,  save_as=None):
         if bgr:
             image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
         plt.axis("off")
         plt.imshow(image)
+
+        if save_as:
+            plt.savefig(save_as)
+
         plt.show()
 
     # displays images
@@ -54,7 +58,7 @@ class Displayer:
 
     # displays confusion matrix
     @staticmethod
-    def conf_matrix(predictions, labels, title):
+    def conf_matrix(predictions, labels, title, save_as=None):
         predictions = [np.argmax(prediction) for prediction in predictions]
         conf_matrix = tf.math.confusion_matrix(labels=labels, predictions=predictions).numpy()
         matrix = np.around([row/sum(row) for row in conf_matrix], decimals=2)
@@ -64,11 +68,15 @@ class Displayer:
         sns.heatmap(matrix, cmap=sns.color_palette("Blues"), annot=True)
         plt.ylabel('Actual class')
         plt.xlabel('Predicted class')
+
+        if save_as:
+            plt.savefig(save_as)
+
         plt.show()
 
     # displays accuracy history
     @staticmethod
-    def acc_history(history, title):
+    def acc_history(history, title, save_as=None):
         plt.plot(history['accuracy'], label='accuracy')
         plt.plot(history['val_accuracy'], label='val_accuracy')
         plt.title(title)
@@ -76,14 +84,18 @@ class Displayer:
         plt.ylabel('Accuracy')
         plt.ylim([0.5, 1])
         plt.legend(loc='lower right')
+
+        if save_as:
+            plt.savefig(save_as)
+
         plt.show()
 
     # displays image marked with all detections
     @staticmethod
-    def mark_predictions(image, faces_data, classes):
+    def mark_predictions(image, faces_data, classes, save_as=None):
         for face_data in faces_data:
             (x, y, w, h) = face_data['face']
             cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
             cv2.putText(image, classes[face_data['prediction']], (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
-        Displayer.image(image, bgr=True)
+        Displayer.image(image, bgr=True, save_as=save_as)

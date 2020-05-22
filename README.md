@@ -53,7 +53,6 @@ ___
       - [Classifier Validations](#classifier-validations )
   - [Data Processing & Augmentation](#data-processing-augmentation )
   - [General Neural Network](#general-neural-network )
-    - [Loss Functions](#loss-functions )
     - [Adam Optimizer](#adam-optimizer )
   - [Artificial Neural Network (ANN)](#artificial-neural-network-ann )
     - [Layers](#layers )
@@ -142,11 +141,6 @@ As the last step of our data processing we split the dataset into training and t
 ###  General Neural Network
   
   
-####  Loss Functions
-  
-_about CategoricalCrossentropy..._
-_about SparseCategoricalCrossentropy..._
-  
 ####  Adam Optimizer
   
 The `Adam` optimizer is the recommended optimizer for general purposes because the default configuration parameters work well with most problems. The optimizer is a gradient decent method and creates good and fast results.
@@ -166,7 +160,47 @@ This layer creates a vector of <img src="https://latex.codecogs.com/gif.latex?n"
   
 ####  Model Validations
   
-_model configurations and data here..._
+  
+![ann confusion matrixes](assets/ann-confusion-matrixes.png )
+![ann predictions](assets/ann-predictions.png )
+  
+_ann 2 of 4_
+```
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+flatten_1 (Flatten)          (None, 10000)             0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 500)               5000500   
+_________________________________________________________________
+dense_3 (Dense)              (None, 250)               125250    
+_________________________________________________________________
+dense_4 (Dense)              (None, 4)                 1004      
+=================================================================
+Total params: 5,126,754
+Trainable params: 5,126,754
+Non-trainable params: 0
+_________________________________________________________________
+```
+  
+_ann 3 of 4_
+```
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+flatten_6 (Flatten)          (None, 10000)             0         
+_________________________________________________________________
+dense_17 (Dense)             (None, 500)               5000500   
+_________________________________________________________________
+dense_18 (Dense)             (None, 250)               125250    
+_________________________________________________________________
+dense_19 (Dense)             (None, 4)                 1004      
+=================================================================
+Total params: 5,126,754
+Trainable params: 5,126,754
+Non-trainable params: 0
+_________________________________________________________________
+```
   
 ###  Convolutional Neural Network (CNN)
   
@@ -189,13 +223,79 @@ The Dropout layer excludes a random <img src="https://latex.codecogs.com/gif.lat
   
 _model configurations and data here..._
   
+![cnn confusion matrixes](assets/cnn-confusion-matrixes.png )
+![cnn predictions](assets/cnn-predictions.png )
+  
+_cnn 2 of 4_
+```
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d (Conv2D)              (None, 98, 98, 25)        700       
+_________________________________________________________________
+dropout (Dropout)            (None, 98, 98, 25)        0         
+_________________________________________________________________
+max_pooling2d (MaxPooling2D) (None, 49, 49, 25)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 47, 47, 50)        11300     
+_________________________________________________________________
+max_pooling2d_1 (MaxPooling2 (None, 23, 23, 50)        0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 21, 21, 50)        22550     
+_________________________________________________________________
+max_pooling2d_2 (MaxPooling2 (None, 10, 10, 50)        0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 8, 8, 50)          22550     
+_________________________________________________________________
+flatten (Flatten)            (None, 3200)              0         
+_________________________________________________________________
+dense (Dense)                (None, 50)                160050    
+_________________________________________________________________
+dense_1 (Dense)              (None, 4)                 204       
+=================================================================
+Total params: 217,354
+Trainable params: 217,354
+Non-trainable params: 0
+_________________________________________________________________
+```
+  
+_cnn 3 of 4_
+```
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv2d_26 (Conv2D)           (None, 98, 98, 25)        700       
+_________________________________________________________________
+dropout_9 (Dropout)          (None, 98, 98, 25)        0         
+_________________________________________________________________
+max_pooling2d_17 (MaxPooling (None, 49, 49, 25)        0         
+_________________________________________________________________
+conv2d_27 (Conv2D)           (None, 47, 47, 50)        11300     
+_________________________________________________________________
+max_pooling2d_18 (MaxPooling (None, 23, 23, 50)        0         
+_________________________________________________________________
+conv2d_28 (Conv2D)           (None, 21, 21, 50)        22550     
+_________________________________________________________________
+flatten_12 (Flatten)         (None, 22050)             0         
+_________________________________________________________________
+dense_27 (Dense)             (None, 50)                1102550   
+_________________________________________________________________
+dense_28 (Dense)             (None, 4)                 204       
+=================================================================
+Total params: 1,137,304
+Trainable params: 1,137,304
+Non-trainable params: 0
+_________________________________________________________________
+```
+  
 ###  Conclusion
   
 _conclusion here..._
   
 with these analysis we found that the kids looks more like their mother than their father.
   
-![image of family detection]( )
+  
+![image of family detection](assets/cnn_image_3of4.png )
 ___
 ##  The Source
   
