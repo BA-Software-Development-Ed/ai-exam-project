@@ -72,7 +72,7 @@ class FaceDetector:
             return
 
         (x, y, w, h) = face
-        cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 125), 2)
         return image
 
     # returns list of objects with cropped image and face geometrics
@@ -100,6 +100,6 @@ class FaceDetector:
         detected_faces = self.classifier.detectMultiScale(image_grayscaled)
 
         for (x, y, w, h) in detected_faces:
-            cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
+            cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 125), 2)
 
         return image

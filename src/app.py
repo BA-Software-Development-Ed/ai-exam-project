@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template, jsonify
+from flask import Flask, request, render_template, jsonify
 import cv2
 import base64
 import numpy as np
@@ -9,10 +9,14 @@ from PIL import Image
 from Utilities import Base64, Files
 
 from FaceDetector import FaceDetector
+from FaceRecognizer import FaceRecognizer
 
 app = Flask(__name__)
+classes = ['dad', 'mom', 'son', 'daughter']
 
-faceDetector = FaceDetector('FACE_ALT2')
+faceDetector = FaceDetector('FACE_ALT')
+faceRecognizer = FaceRecognizer(classes)
+faceRecognizer.load_model('src/models/cnn_model_3of4')
 
 
 @app.route('/')
@@ -61,9 +65,16 @@ def recognition():
     image = Base64.decodeAsImage(raw_image)
 
     # detects faces on image
-    marked_image = faceDetector.mark_all(image)
+    faces_data = faceDetector.face_details(image)
+    prediction_data = faceRecognizer.face_predictions(faces_data)
 
-    img = Image.fromarray(marked_image.astype("uint8"))
+    # draws face boxes and names on image
+    for face_data in prediction_data:
+        (x, y, w, h) = face_data['face']
+        cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 125), 2)
+        cv2.putText(image, classes[face_data['prediction']], (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 125), 2)
+
+    img = Image.fromarray(image.astype("uint8"))
 
     # voodoo
     rawBytes = io.BytesIO()
@@ -75,6 +86,22 @@ def recognition():
     response = str(img_base64, 'utf-8')
 
     return jsonify({'image': response}), 200
+
+
+@app.route('/create-profile',  methods=["GET", "POST"])
+def create_profile():
+    if request.method == "GET":
+        return render_template('create-profile.html')
+
+    # get base64 content
+    return jsonify({'status': 'not implemented'}), 501
+
+
+@app.route('/recognize-profile',  methods=["POST"])
+def recognize_profile():
+
+    # get base64 content
+    return jsonify({'status': 'not implemented'}), 501
 
 
 app.run(debug=True)

@@ -45,13 +45,13 @@ ___
 - [x] Utility Classes, based on notebook util functions
 
 ### 3.1 Web Application
-- [ ] Implement Face Detector Class
-- [ ] Implement Face Recognizer Class
+- [x] Implement Face Detector Class
+- [x] Implement Face Recognizer Class
 
 ### 3.2 Web Application Redesign
-- [ ] index.html => detect image & recognize
-- [ ] detect.html => post images, response with face box image
-- [ ] recognize.html => post images, response with face box image, and names - maybe percentage
+- [x] index.html => detect image & recognize
+- [x] detect.html => post images, response with face box image
+- [x] recognize.html => post images, response with face box image, and names - maybe percentage
 
 ### 4. Optimizing
 - [ ] Add `Unknown` class as result, maybe by percentage

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Facial Intelligence</title>
+		<link rel="icon" href="{{ url_for('static', filename='assets/favicon.png') }}" />
+
+		<!-- styling -->
+		<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+
+		<!-- scripts -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='webcam.js') }}"></script>
+	</head>
+	<body>
+		<!-- header -->
+		<header>
+			<a href="/" class="title">Facial Intelligence</a>
+			<a href="/create-profile">create profile</a>
+		</header>
+
+		<!-- progressbar -->
+		<section class="progress">
+			<span>capture images</span>
+			<span class="unloaded"> ··· train model</span>
+			<span class="unloaded"> ··· evaluate training</span>
+			<span class="unloaded"> ··· test model</span>
+			<span class="unloaded"> ··· analysis</span>
+			<span class="unloaded"> ··· recognitions</span>
+		</section>
+
+		<!-- main content -->
+		<main style="width: 600vw;">
+			<!-- slide 1 -->
+			<div class="slide">
+				<form id="create-profile-form" data-uri="/create-profile">
+					<div id="webcam-container-1">
+						<!-- displays webcam input -->
+					</div>
+					<input type="text" name="image-input" id="name-input" placeholder="name" required style="margin: 1rem;" />
+					<button type="submit" class="submit-button">submit profile</button>
+				</form>
+			</div>
+
+			<!-- slide 2 -->
+			<div class="slide">
+				<h1>analyzing image</h1>
+				<img class="animate-loading" src="{{ url_for('static', filename='assets/create-profile.svg') }}" alt="recognition link" />
+			</div>
+
+			<!-- slide 3 -->
+			<div class="slide">
+				<h1>model information</h1>
+				<h3>Some info about accuracy and loss</h3>
+				<button class="submit-button" id="test-model">test model</button>
+			</div>
+
+			<!-- slide 4 -->
+			<div class="slide">
+				<form id="recognize-profile-form" data-uri="/recognize-profile">
+					<div id="webcam-container-2">
+						<!-- displays webcam input -->
+					</div>
+
+					<button type="submit" class="submit-button">submit image</button>
+				</form>
+			</div>
+
+			<!-- slide 5 -->
+			<div class="slide">
+				<h1>analyzing image</h1>
+				<img class="animate-loading" src="{{ url_for('static', filename='assets/recognition.svg') }}" alt="recognition link" />
+			</div>
+
+			<!-- slide 6 -->
+			<div class="slide">
+				<h1>recognitions</h1>
+				<img alt="image recognitions" id="image-detections" class="image" />
+			</div>
+		</main>
+	</body>
+</html>

@@ -63,7 +63,11 @@ const read_file = (input) => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-	document.querySelector('#detect-form').addEventListener('submit', submit);
+	const detect_form = document.querySelector('#detect-form');
+	const recognize_form = document.querySelector('#recognize-form');
+
+	if (detect_form) detect_form.addEventListener('submit', submit);
+	if (recognize_form) recognize_form.addEventListener('submit', submit);
 });
 
 // utility

@@ -32,7 +32,7 @@
 			<!-- slide 1 -->
 			<div class="slide">
 				<h1>upload image</h1>
-				<form id="detect-form" data-uri="/recognition">
+				<form id="recognize-form" data-uri="/recognition">
 					<input type="file" name="image-input" id="file-selector" style="display: none;" onchange="read_file(this);" />
 					<button onclick="document.querySelector('#file-selector').click();" style="border: none;">
 						<img src="{{ url_for('static', filename='assets/image-placeholder.png') }}" id="image-preview" class="image" />
