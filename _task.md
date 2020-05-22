@@ -58,9 +58,14 @@ ___
 - [x] Combine ANN & CNN in single notebook
 - [x] Make several ANN & CNN models, and compare
 - [x] Add markdown content to notebooks
-- [ ] Save diagrams as images for the `_docs.md`
+- [x] Save diagrams as images for the `_docs.md`
 - [ ] Finnish `_docs.md`
 - [x] Short function comments in `.py` files
+- [ ] Describe & Fix Classifiers
+- [ ] Get Pernille up and Running
+- [ ] Add Accuracy on images
+- [ ] Add shadow on conclusion image
+- [ ] Fix app.py to App.py
 
 ___
 ## Sketches
