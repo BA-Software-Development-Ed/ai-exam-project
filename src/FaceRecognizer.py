@@ -13,10 +13,11 @@ class FaceRecognizer:
     classes = None
     model = None
     history = None
-    faceDetector = FaceDetector('FACE_DEFAULT')
+    faceDetector = None
 
-    def __init__(self, classes, model=None):
+    def __init__(self, classes, faceDetector, model=None):
         self.classes = classes
+        self.faceDetector = faceDetector
         if model:
             self.model = model
 

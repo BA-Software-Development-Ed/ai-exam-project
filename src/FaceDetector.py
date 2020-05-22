@@ -12,6 +12,9 @@ class FaceDetector:
         'FACE_ALT': f'{os.getcwd()}/src/cascade-classifiers/haarcascade_frontalface_alt.xml',
         'FACE_ALT2': f'{os.getcwd()}/src/cascade-classifiers/haarcascade_frontalface_alt2.xml',
         'FACE_DEFAULT': f'{os.getcwd()}/src/cascade-classifiers/haarcascade_frontalface_default.xml',
+        'FACE_ALT_NB': '../cascade-classifiers/haarcascade_frontalface_alt.xml',
+        'FACE_ALT2_NB': '../cascade-classifiers/haarcascade_frontalface_alt2.xml',
+        'FACE_DEFAULT_NB': '../cascade-classifiers/haarcascade_frontalface_default.xml',
     }
 
     def __init__(self, classifier_type):
@@ -22,6 +25,7 @@ class FaceDetector:
     def _detect(self, image, gray=False):
         if not gray:
             image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
         detected_faces = self.classifier.detectMultiScale(image)
         if len(detected_faces) == 0:
             return

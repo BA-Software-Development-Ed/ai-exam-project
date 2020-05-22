@@ -8,7 +8,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 class DataGenerator:
 
-    face_detector = FaceDetector('FACE_DEFAULT')
+    #face_detector = FaceDetector('FACE_DEFAULT')
 
     # https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator
     datagen = ImageDataGenerator(
@@ -22,11 +22,12 @@ class DataGenerator:
 
     # private method, returns list of cropped faces from images
     @staticmethod
-    def _crop_images(images):
+    def _crop_images(images, face_detector):
+
         cropped_images = []
 
         for image in images:
-            cropped_image = DataGenerator.face_detector.crop(image)
+            cropped_image = face_detector.crop(image)
 
             if cropped_image is None:
                 continue
@@ -37,12 +38,12 @@ class DataGenerator:
 
     # returns datasets of auto generated images from image folder
     @staticmethod
-    def generate(path, amount, label, test_size):
+    def generate(path, amount, label, test_size, face_detector):
         file_names = os.listdir(path)
         images = [cv2.imread(f'{path}/{file_name}') for file_name in file_names]
         images = [cv2.cvtColor(image, cv2.COLOR_BGR2RGB) for image in images]
 
-        cropped_images = DataGenerator._crop_images(images)
+        cropped_images = DataGenerator._crop_images(images, face_detector)
         generated_images = []
 
         for image in cropped_images:

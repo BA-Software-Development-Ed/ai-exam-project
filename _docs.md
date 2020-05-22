@@ -53,13 +53,13 @@ ___
 ### Introduction
 We decided to create a face recognition application, using `TensorFlow`, `openCV` and `Flask` as the main components. 
 
+The models are based on each family member in `Family1` from the [datasets](src/data/PersonGroup)
 
 ![face recognition](assets/face-recognition.png)
 
-_some info about the project..._
+The core functionality of the system is to isolate faces in images and make a recognition based on the highest predicted label.
 
-### Classification or Regression
-_about the use cases for theses two..._
+The project also includes a web application to interact with the model as a client. This application uses the best of our models to detect and recognize the faces in the posted images.  
 
 ### Face Detection
 
@@ -89,22 +89,34 @@ _validation here..._
 
 ![data generation](assets/data-generation.png)
 
+We are using our custom class [FaceDetector.py](src/FaceDetector.py) to crop the face from each image. 
+
+Subsequently we are using the custom class [DataGenerator.py](src/DataGenerator.py) to generate augmented images. This class uses `ImageDataGenerator` from Tensor Flow, to manipulate images with given arguments.
+
+
+```python
+ImageDataGenerator(
+    rotation_range=20,
+    width_shift_range=0.1,
+    height_shift_range=0.1,
+    shear_range=10,
+    horizontal_flip=True,
+    fill_mode='reflect',  # constant, nearest, reflect, wrap
+)
+```
+
+As the last step of our data processing we split the dataset into training and testing datasets.
+
 [ImageDataGenerator, tensorflow.org](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator)
-
-_about data generator here..._
-
-### Face Recognition
 
 ### General Neural Network
 
-#### Activation Functions
-_about activation functions here..._
-
 #### Loss Functions
+_about CategoricalCrossentropy..._
 _about SparseCategoricalCrossentropy..._
 
-#### Optimizers
-_about optimizers => adam..._
+#### Adam Optimizer
+The `Adam` optimizer is the recommended optimizer for general purposes because the default configuration parameters work well with most problems. The optimizer is a gradient decent method and creates good and fast results.
 
 ### Artificial Neural Network (ANN)
 _about ann here..._
@@ -138,6 +150,10 @@ _model configurations and data here..._
 
 ### Conclusion
 _conclusion here..._
+
+with these analysis we found that the kids looks more like their mother than their father.
+
+![image of family detection]()
 ___
 ## The Source
 

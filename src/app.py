@@ -15,7 +15,7 @@ app = Flask(__name__)
 classes = ['dad', 'mom', 'son', 'daughter']
 
 faceDetector = FaceDetector('FACE_ALT')
-faceRecognizer = FaceRecognizer(classes)
+faceRecognizer = FaceRecognizer(classes, faceDetector)
 faceRecognizer.load_model('src/models/cnn_model_3of4')
 
 
