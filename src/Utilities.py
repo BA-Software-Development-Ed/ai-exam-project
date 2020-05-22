@@ -9,10 +9,6 @@ import tensorflow as tf
 
 class Base64:
     @staticmethod
-    def encode():  # encodeArray(), encodeImage()
-        pass
-
-    @staticmethod
     def decode(base64String):
         image = base64.b64decode(base64String)
         return image
@@ -29,21 +25,6 @@ class Base64:
         image = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
         rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         return rgb_image
-
-
-class Files:
-    @staticmethod
-    def saveBase64(images, path):
-        for index, base64_image in enumerate(images):
-            image = Base64.decode(base64_image)
-            file_path = f'{path}/image_{index}.jpg'
-
-            with open(file_path, 'wb') as file:
-                file.write(image)
-
-    @staticmethod
-    def loadImages(path):
-        pass
 
 
 class Displayer:
@@ -106,13 +87,3 @@ class Displayer:
             cv2.putText(image, classes[face_data['prediction']], (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
         Displayer.image(image, bgr=True)
-
-
-class OneHot:
-    @staticmethod
-    def encode():
-        pass
-
-    @staticmethod
-    def decode():
-        pass

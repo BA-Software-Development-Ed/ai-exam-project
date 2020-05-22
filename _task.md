@@ -56,7 +56,7 @@ ___
 ### 4. Optimizing
 - [ ] Add `Unknown` class as result, maybe by percentage
 - [x] Combine ANN & CNN in single notebook
-- [ ] Make several ANN & CNN models, and compare
+- [x] Make several ANN & CNN models, and compare
 - [x] Add markdown content to notebooks
 - [ ] Save diagrams as images for the `_docs.md`
 - [ ] Finnish `_docs.md`
