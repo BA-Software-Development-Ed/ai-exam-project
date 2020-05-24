@@ -54,15 +54,17 @@ ___
 - [x] recognize.html => post images, response with face box image, and names - maybe percentage
 
 ### 4. Optimizing
-- [ ] Add `Unknown` class as result, maybe by percentage
+- [x] Add `Unknown` class as result, maybe by percentage
 - [x] Combine ANN & CNN in single notebook
 - [x] Make several ANN & CNN models, and compare
 - [x] Add markdown content to notebooks
 - [x] Save diagrams as images for the `_docs.md`
 - [ ] Finnish `_docs.md`
 - [x] Short function comments in `.py` files
-- [ ] Describe & Fix Classifiers
+- [x] Describe & Fix Classifiers
 - [x] Get Pernille up and Running
-- [ ] Add Accuracy on images
+- [x] Add Accuracy on images
 - [x] Add shadow on conclusion image
 - [x] Fix app.py to App.py
+- [ ] Recreate cnn model in Notebook
+- [ ] Fix website

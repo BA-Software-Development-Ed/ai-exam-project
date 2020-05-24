@@ -6,8 +6,7 @@ import os
 import io
 from PIL import Image
 
-from Utilities import Base64, Files
-
+from Utilities import Base64
 from FaceDetector import FaceDetector
 from FaceRecognizer import FaceRecognizer
 
