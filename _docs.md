@@ -251,13 +251,26 @@ Non-trainable params: 0
 _________________________________________________________________
 ```
 
+|            | ANN 2 of 4 | ANN 3 of 4 | CNN 2 of 4 | CNN 3 of 4 |
+|------------|------------|------------|------------|------------|
+| 1          |  Flatten    | Flatten    | Conv2D     | Conv2D     |
+| 2          |  Dense      | Dense      | Dropout 0.2| Dropout 0.2|
+| 3          |  Dense      | Dense      | MaxPooling | MaxPooling |
+| 4          |  Dense 4    | Dense 4    | Conv2D     | Conv2D     |
+| 5          |             |            | MaxPooling | MaxPooling |
+| 6          |             |            | Conv2D     | Conv2D     | 
+| 7          |             |            | Flatten    | Flatten    |
+| 8          |             |            | Dense      | Dense      |
+| 9          |             |            | Dense 4    | Dense 4    |
+| Accuracy   |             |            |            |            |
+
 ### Conclusion
 _conclusion here..._
 
 with these analysis we found that the kids looks more like their mother than their father.
 
 
-![image of family detection](assets/cnn_image_3of4.png)
+![image of family detection](assets/cnn-prediction.png)
 ___
 ## The Source
 
@@ -270,14 +283,14 @@ ___
 └─ FaceRecognizer.ipynb   # face recognition
 
 # flask files
-App.py      # main file
+App.py       # main file
 /templates   # html templates
 /static      # javascript, styling and assets
 
 # custom classes for flask application
 FaceDetector.py     # notebook as class
 FaceRecognizer.py   # notebook as class
-DataGenerator.py   # notebook as class
+DataGenerator.py    # notebook as class
 Utilities.py        # classes for encoding, plotting ect.
 
 # models and classifiers

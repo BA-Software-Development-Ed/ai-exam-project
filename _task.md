@@ -62,7 +62,7 @@ ___
 - [ ] Finnish `_docs.md`
 - [x] Short function comments in `.py` files
 - [ ] Describe & Fix Classifiers
-- [ ] Get Pernille up and Running
+- [x] Get Pernille up and Running
 - [ ] Add Accuracy on images
-- [ ] Add shadow on conclusion image
+- [x] Add shadow on conclusion image
 - [x] Fix app.py to App.py
