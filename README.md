@@ -15,7 +15,9 @@ Elective **Artificial Intelligence**
 The objective of this task is to enable you to demonstrate the knowledge of artificial intelligence and machine learning acquired during the elective AI course.  
 The task is to create a machine learning based solution to a real life problem.
   
-Full exam details can be found in [exam-task.md](exam-task.md ).
+Full exam details can be found in [exam-task.md](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/exam-task.md ).
+  
+<div class="pagebreak"> </div>
   
 ###  Prerequisite
   
@@ -40,9 +42,12 @@ python src/App.py
   
 ###  Notebooks
   
-The notebooks is located here [src/notebooks](src/notebooks ).
+The notebooks is located here [src/notebooks](https://github.com/BA-Software-Development-Ed/ai-exam-project/tree/master/src/notebooks ).
   
-___
+  
+<div class="pagebreak"> </div>
+  
+  
 ##  The Content
   
   
@@ -71,7 +76,8 @@ ___
   - [App (.py)](#app-py )
   - [models (directory)](#models-directory )
   
-___
+<div class="pagebreak"> </div>
+  
 ##  The Theory
   
   
@@ -79,13 +85,15 @@ ___
   
 We decided to create a face recognition application, using `TensorFlow`, `openCV` and `Flask` as the main components. 
   
-The models are based on each family member in `Family1` from the [datasets](src/data/PersonGroup )
+The models are based on each family member in `Family1` from the [datasets](https://github.com/BA-Software-Development-Ed/ai-exam-project/tree/master/src/data )
   
 ![face recognition](assets/face-recognition.png )
   
 The core functionality of the system is to isolate faces in images and make a recognition based on the highest predicted label.
   
 The project also includes a web application to interact with the model as a client. This application uses the best of our models to detect and recognize the faces in the posted images.  
+  
+<div class="pagebreak"> </div>
   
 ###  Face Detection
   
@@ -114,14 +122,18 @@ The last classifier over-detected the amounts of "faces". This resulted in an in
 [reference, docs.opencv.org](https://docs.opencv.org/master/db/d28/tutorial_cascade_classifier.html )  
 [resource, github.com/opencv](https://github.com/opencv/opencv/tree/master/data/haarcascades )
   
+<div class="pagebreak"> </div>
+  
 ###  Data Processing & Augmentation
   
   
+Our data source is from Microsoft's face recognition repository at [GitHub](https://github.com/microsoft/Cognitive-Face-Windows/tree/master/Data )
+  
 ![data generation](assets/data-generation.png )
   
-We are using our custom class [FaceDetector.py](src/FaceDetector.py ) to crop the face from each image. 
+We are using our custom class [FaceDetector.py](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/src/FaceDetector.py ) to crop the face from each image. 
   
-Subsequently we are using the custom class [DataGenerator.py](src/DataGenerator.py ) to generate augmented images. This class uses `ImageDataGenerator` from Tensor Flow, to manipulate images with given arguments.
+Subsequently we are using the custom class [DataGenerator.py](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/src/DataGenerator.py ) to generate augmented images. This class uses `ImageDataGenerator` from Tensor Flow, to manipulate images with given arguments.
   
   
 ```python
@@ -138,6 +150,8 @@ ImageDataGenerator(
 As the last step of our data processing we split the dataset into training and testing datasets.
   
 [ImageDataGenerator, tensorflow.org](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator )
+  
+<div class="pagebreak"> </div>
   
 ###  General Neural Network
   
@@ -159,6 +173,8 @@ Flatten layer takes an <img src="https://latex.codecogs.com/gif.latex?n"/> dimen
 **Dense Layer**  
 This layer creates a vector of <img src="https://latex.codecogs.com/gif.latex?n"/> neurons that uses the output from the previous layer. 
   
+<div class="pagebreak"> </div>
+  
 ####  Model Validations
   
   
@@ -166,9 +182,13 @@ We ended up with two Artificial Neural Network models. We based the validation f
   
 ![ann confusion matrixes](assets/ann-confusion-matrixes.png )
   
+<div class="pagebreak"> </div>
+  
 These are the results we based our accuracy on. The first image shows an accurate recognition of `2:4` where the image on the right shows an accurate recognition of `3:4`.
   
 ![ann predictions](assets/ann-predictions.png )
+  
+<div class="pagebreak"> </div>
   
 ###  Convolutional Neural Network (CNN)
   
@@ -194,9 +214,13 @@ We ended up with two Convolutional Neural Network models. We based the validatio
   
 ![cnn confusion matrixes](assets/cnn-confusion-matrixes.png )
   
+<div class="pagebreak"> </div>
+  
 These are the results we based our accuracy on. The first image shows an accurate recognition of `2:4` where the image on the right shows an accurate recognition of `3:4`.
   
 ![cnn predictions](assets/cnn-predictions.png )
+  
+<div class="pagebreak"> </div>
   
 ###  Conclusion
   
@@ -221,9 +245,9 @@ The table below shows the different architectures of the models. This data comes
 | Epochs     | 15         | 10         | 5           | 5           |
 | Accuracy   | 93.33%     | 99.50%     | 77.67%      | 93.33%      |
   
-These values can be found in [Model Architectures](model-architectures.md )
+These values can be found in [Model Architectures](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/model-architectures.md )
   
-The model we ended up selecting was the Convolutional model with the accuracy of `3:4`. This was the model we implemented in our web application. Because we couldn't implement an `Unknown` class, uploading other images than [identification 1](src/data/identification1.jpg ) would only give invalid predictions.
+The model we ended up selecting was the Convolutional model with the accuracy of `3:4`. This was the model we implemented in our web application. Because we couldn't implement an `Unknown` class, uploading other images than [recognition image](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/recognition-image.jpg ) would only give invalid predictions.
   
 ![image of family detection](assets/cnn-prediction.png )
   
@@ -236,7 +260,9 @@ The recognition models would be more useful if we implemented an `Unknown` class
 The data augmentation is a great tool to generate similar images, but a real large dataset would give a more accurate prediction. The possibility to use augmentation on these images would still be possible.
   
 We started with a concept of creating a profile from a collection of images which would be trained by our model and result in a model that could recognize you. This wasn't implemented in our application due to the fact that we didn't have the knowledge to create the functionality supporting it.
-___
+  
+<div class="pagebreak"> </div>
+  
 ##  The Source
   
   
@@ -270,32 +296,32 @@ Utilities.py        # classes for encoding, plotting ect.
   
 ###  FaceDetector (.py)
   
-[FaceDetector.py](src/FaceDetectorpp.py )
+[FaceDetector.py](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/src/FaceDetector.py )
   
 The class contains methods to crop, resize, mark and get face details and uses the _Haar feature-based cascade classifier_ to detect faces in images. 
   
 ###  FaceRecognizer (.py)
   
-[FaceRecognizer.py](src/FaceRecognizer.py )
+[FaceRecognizer.py](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/src/FaceRecognizer.py )
   
 The class contains methods to train and test the model, save and load models, get model summary and recognize faces from previous detections.
   
 ###  DataGenerator (.py)
   
-[DataGenerator.py](src/DataGenerator.py )
+[DataGenerator.py](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/src/DataGenerator.py )
   
 The class contains methods to generate augmented datasets from cropped images, merge and shuffle datasets.
   
 ###  Utilities (.py)
   
-[Utilities.py](src/Utilities.py )
+[Utilities.py](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/src/Utilities.py )
   
 This module contains a `Base64` class that contains methods to decode base64 images.
 This module also contains a `Displayer` class that contains methods to plot images, confusion matrix, accuracy history and mark detections with predictions.
   
 ###  App (.py)
   
-[FaceDetector.py](src/App.py )
+[FaceDetector.py](https://github.com/BA-Software-Development-Ed/ai-exam-project/blob/master/src/App.py )
   
 This is the flask server main file, containing the routes and endpoints for the web application.
   

@@ -31,7 +31,10 @@
 		<main style="width: 300vw;">
 			<!-- slide 1 -->
 			<div class="slide">
-				<h1>upload image</h1>
+				<div style="text-align: center;">
+					<h1>upload image</h1>
+					<h2 style="opacity: 0.3;">We recommend using recognition-image.jpg from the root directory</h2>
+				</div>
 				<form id="recognize-form" data-uri="/recognition">
 					<input type="file" name="image-input" id="file-selector" style="display: none;" onchange="read_file(this);" />
 					<button onclick="document.querySelector('#file-selector').click();" style="border: none;">

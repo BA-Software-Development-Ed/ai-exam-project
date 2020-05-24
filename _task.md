@@ -59,7 +59,7 @@ ___
 - [x] Make several ANN & CNN models, and compare
 - [x] Add markdown content to notebooks
 - [x] Save diagrams as images for the `_docs.md`
-- [ ] Finnish `_docs.md`
+- [x] Finnish `_docs.md`
 - [x] Short function comments in `.py` files
 - [x] Describe & Fix Classifiers
 - [x] Get Pernille up and Running
@@ -67,4 +67,5 @@ ___
 - [x] Add shadow on conclusion image
 - [x] Fix app.py to App.py
 - [ ] Recreate cnn model in Notebook
-- [ ] Fix website
+- [x] Fix website
+- [x] Add image path to web app
